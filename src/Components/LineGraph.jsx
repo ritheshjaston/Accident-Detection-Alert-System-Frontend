@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import axios from 'axios';
+import { Box, Typography } from '@mui/material';
 
 const LineGraph = () => {
   const [chartData, setChartData] = useState({
@@ -73,13 +74,12 @@ const LineGraph = () => {
   }, []);
 
   return (
-    <div className='chaart'>
-     
-      <div id="chart">
+    <Box className="chart-container" sx={{ p: 2 }}>
+      
+      <Box id="chart">
         <ReactApexChart options={chartData.options} series={chartData.series} type="line" height={350} />
-      </div>
-      <div id="html-dist"></div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

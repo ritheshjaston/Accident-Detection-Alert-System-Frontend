@@ -24,13 +24,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useNavigate, Outlet } from 'react-router-dom';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+
 import logo from '../logotop.png';
 import './Dashboard.css';
 
 const drawerWidth = 240;
 
-const items = ['Home', 'Recent', 'Hospitals', 'Fire'];
-const additionalItems = ['Report', 'Accidents', 'About'];
+const items = ['Home', 'Recent', 'Users','Accidents', 'Hospitals', 'Fire'];
+const additionalItems = [ 'About'];
 
 const iconMapping = {
     Home: <HomeIcon />,
@@ -40,6 +42,7 @@ const iconMapping = {
     Report: <ReportIcon />,
     Accidents: <DirectionsCarIcon />,
     About: <InfoIcon />,
+    Users: <AddCircleOutlineIcon />,
 };
 
 function Dashboard(props) {
@@ -85,6 +88,9 @@ function Dashboard(props) {
                 break;
             case 'About':
                 navigate('/about');
+                break;
+            case 'Users':
+                navigate('/user');
                 break;
             default:
                 break;

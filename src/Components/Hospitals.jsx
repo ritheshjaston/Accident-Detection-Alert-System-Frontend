@@ -1,15 +1,17 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Viewuser.css'
+import './Viewuser.css';
 import { Link } from "react-router-dom";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, CircularProgress } from '@mui/material';
 
 function Hospitals() {
     const [loading, setLoading] = useState(false);
     const [table, settable] = useState(true);
     const [data, setdata] = useState("");
     const [json, setjson] = useState([]);
+
     useEffect(() => {
         setLoading(true);
         settable(false);
@@ -21,82 +23,66 @@ function Hospitals() {
                 setLoading(false);
                 setjson(JSON.parse(person));
                 settable(true);
-
             })
             .catch(error => {
                 console.error('Error:', error);
                 setLoading(false);
                 setdata("Please Try again After some time.");
-                // Handle error here, such as displaying an error message to the user
             });
-
-
     }, []);
+
     return (
         <div>
-
             <div className='headerbar'>
-                <Link to="/Add_Hospitals" className='newbtn' >New</Link>
+                <Link to="/Add_Hospitals" className='newbtn'>New</Link>
             </div>
             <br />
             <br />
-
-            <div className="view">
-                <hr />
-            </div>
-            {loading &&
+            <br />
+            <hr />
+            {loading && (
                 <>
                     <br />
                     <br />
                     <br />
                     <div class="loader"></div>
                 </>
-            }
-
-            {table &&
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Hosp Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Amulance</th>
-                            <th scope="col">Location</th>
-                            <th scope="col">    </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {json.map(item => (
-                            <tr key={item.ID}>
-                                <td>{item.ID}</td>
-                                <td>{item.hname}</td>
-                                <td>{item.email}</td>
-                                <td>{item.phone}</td>
-                                <td>{item.address}</td>
-                                <td>{item.Amulance}</td>
-                                <td>{item.longitude} / {item.latitude}</td>
-                                {/* <td>
-
-                                    <div class="dropdown">
-                                        <span class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            &#xFE19;
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <Link class="dropdown-item" to="">Update</Link>
-                                            <Link class="dropdown-item" t0="">Delete</Link>
-                                        </div>
-                                    </div></td> */}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            }
-
-            <h5>{data}</h5>
+            )}
+            {table && (
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>ID</TableCell>
+                                <TableCell>Hosp Name</TableCell>
+                                <TableCell>Email</TableCell>
+                                <TableCell>Phone</TableCell>
+                                <TableCell>Address</TableCell>
+                                <TableCell>Amulance</TableCell>
+                                <TableCell>Location</TableCell>
+                                <TableCell></TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {json.map(item => (
+                                <TableRow key={item.ID}>
+                                    <TableCell>{item.ID}</TableCell>
+                                    <TableCell>{item.hname}</TableCell>
+                                    <TableCell>{item.email}</TableCell>
+                                    <TableCell>{item.phone}</TableCell>
+                                    <TableCell>{item.address}</TableCell>
+                                    <TableCell>{item.Amulance}</TableCell>
+                                    <TableCell>{item.longitude} / {item.latitude}</TableCell>
+                                   
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            )}
+            <Typography variant="h5">{data}</Typography>
         </div>
-    )
+    );
 }
 
 export default Hospitals;

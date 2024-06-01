@@ -9,8 +9,10 @@ import Report from './Components/Report';
 import Accidents from './Components/Accidents';
 import About from './Components/About';
 import Home from './Components/Home';
-
-
+import AddHospital from './Components/AddHospital';
+import AddFire from './Components/AddFire';
+import User from './Components/User';
+import DeviceReg from './Components/DeviceReg';
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +25,10 @@ function App() {
           <Route path="report" element={<Report />} />
           <Route path="accidents" element={<Accidents />} />
           <Route path="about" element={<About />} />
+          <Route path="Add_Hospitals" element={<AddHospital />} />
+          <Route path="Add_Fire" element={<AddFire />} />
+          <Route path="user" element={<User />} />
+          <Route path="devicereg" element={<DeviceReg />} />
         </Route>
       </Routes>
     </BrowserRouter>
