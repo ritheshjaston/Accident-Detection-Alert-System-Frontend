@@ -1,0 +1,43 @@
+.widget {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+}
+
+.widget .w1 {
+    width: 20%;
+    height: fit-content;
+    background-color: #b3d9ff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.widget .w1 div {
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align items to the ends */
+}
+
+.widget .w1 h1 {
+    margin-top: 0px;
+}
+.charts{
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .widget {
+        flex-direction: column; 
+    }
+
+    .widget .w1 {
+        width: 100%; 
+        margin: 5px 0; 
+    }
+    .charts{
+        margin-top: 20px;
+    }
+}
