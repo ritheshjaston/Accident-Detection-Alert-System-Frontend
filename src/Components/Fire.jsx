@@ -33,6 +33,9 @@ function Fire() {
 
     return (
         <div>
+            <Typography variant="h5" >
+                Fire Service
+            </Typography>
             <div className='headerbar'>
                 <Link to="/Add_Fire" className='newbtn'>New</Link>
             </div>

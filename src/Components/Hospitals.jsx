@@ -33,6 +33,9 @@ function Hospitals() {
 
     return (
         <div>
+            <Typography variant="h5" >
+                Hospitals
+            </Typography>
             <div className='headerbar'>
                 <Link to="/Add_Hospitals" className='newbtn'>New</Link>
             </div>
@@ -73,7 +76,7 @@ function Hospitals() {
                                     <TableCell>{item.address}</TableCell>
                                     <TableCell>{item.Amulance}</TableCell>
                                     <TableCell>{item.longitude} / {item.latitude}</TableCell>
-                                   
+
                                 </TableRow>
                             ))}
                         </TableBody>

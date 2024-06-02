@@ -36,12 +36,17 @@ export default function User() {
 
     return (
         <div>
+            <Typography variant="h5" >
+                Users
+            </Typography>
             <div className='headerbar'>
                 <Link to="/devicereg" className='newbtn'>New</Link>
             </div>
             <br />
             <br />
             <br />
+           
+         
             <hr />
             {loading && (
                 <div>
